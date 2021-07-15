@@ -6,45 +6,73 @@ let startBtn = document.getElementById("start-btn")
 let newCardBtn = document.getElementById("new-card-btn")
 
 //Card game Elements
-let firstCard = 5
-let secondCard = 8
-let cards = [firstCard, secondCard]
+
+let cards = []
+let cardSum = 0
 
 //game logic
-let isFinallyAlive = true
+let isAlive = false
 let hasBlackJack = false
-let hearConvo = false
 
-function renderGame(){
-    startGame()
+let player = {
+    name: "You",
+    chips: 145 
 }
+let playerEl = document.getElementById("player")
+playerEl.textContent = player.name + ": $" + player.chips
+
+function getRandomCard() {
+let randomNumber = Math.floor(Math.random() * 13) + 1
+if(randomNumber > 10){
+    return 10
+} else if (randomNumber === 1) {
+    return 11
+} else {
+    return randomNumber
+}
+}
+
 function startGame(){
-//when button is clicked. print card numbers & the sum they produce
-//determine you lose or win
-//change text to show winning 
-cardEl.textContent = "Your Card: " + cards 
-cardsSum = cards[0] + cards[1]
-sumEl.textContent = "Your Sum: " + cardsSum
 
-if (cardsSum <= 20){
-    headerEl.textContent = "Draw a new card, take your time though"
-    hearConvo = true
+    isAlive = true
+    let firstCard = getRandomCard()
+    let secondCard = getRandomCard()
+
+    cards = [firstCard, secondCard]
+    cardSum = firstCard + secondCard
+
+    renderGame()
 }
-else if (cardsSum == 21){
+function renderGame(){
+cardEl.textContent = "Your Cards: " 
+for(let i = 0; i < cards.length; i++) {
+    cardEl.textContent += cards[i] + " "
+}
+sumEl.textContent = "Your Sum: " + cardSum
+
+if (cardSum <= 20){
+    headerEl.textContent = "Draw a new card, take your time though"
+    
+}
+else if (cardSum === 21){
     headerEl.textContent = "You've got Blackjack. Here's a free burger, heheheh."
     hasBlackJack = true
 }
 else {
 headerEl.textContent = "Well, sucks for you."
-isFinallyAlive = false
+isAlive = false
+
 }
 
 }
 function newCard() {
 //draw a new card by pushing a card into the deck
 //then add this card into the sum
-let newCardDrawn = 2
-cards.push(newCardDrawn)
-sumEl.textContent = "Your Sum: " + (cardsSum + newCardDrawn)
-console.log(cards)
+if( isAlive === true && hasBlackJack === false) {
+    let newCardDrawn =  getRandomCard()
+    cardSum += newCardDrawn
+    cards.push(newCardDrawn)
+    renderGame()
 }
+
+} 
