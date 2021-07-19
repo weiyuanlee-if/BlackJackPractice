@@ -16,7 +16,7 @@ let hasBlackJack = false
 
 let player = {
     name: "You",
-    chips: 145 
+    chips: 100
 }
 let playerEl = document.getElementById("player")
 playerEl.textContent = player.name + ": $" + player.chips
@@ -33,7 +33,7 @@ if(randomNumber > 10){
 }
 
 function startGame(){
-
+    
     isAlive = true
     let firstCard = getRandomCard()
     let secondCard = getRandomCard()
@@ -59,8 +59,9 @@ else if (cardSum === 21){
     hasBlackJack = true
 }
 else {
-headerEl.textContent = "Well, sucks for you."
+headerEl.textContent = "Bust, sucks for you."
 isAlive = false
+startBtn.textContent = "RESTART GAME"
 
 }
 
@@ -76,3 +77,8 @@ if( isAlive === true && hasBlackJack === false) {
 }
 
 } 
+function spendChip(){
+
+    
+}
+//restart game after they run out of money
