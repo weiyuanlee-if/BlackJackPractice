@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,20 +8,34 @@
     <link rel="stylesheet" href="style.css">
     <title>Black Jack</title>
 </head>
+
 <body>
-    <h1 id="header-el">Black Jack</h1>
 
+    
+        <div class="game-box">
+            <h1 class="header-el">Black Jack</h1>
+            <div class="player-side">
+                <p class="plcard-el"> Your Cards: </p>
+                <p class="plsum-el">Your Sum: </p>
+            </div>
+            <div class="dealer-side">
+                <p class="dealercard">Dealer Cards: </p>
+                <p class="dealersum">Dealer Sum: </p>
+            </div>
+            <div class="chips">
+                <p class="player-chips"></p>
+            </div>
+            <div class="game-buttons">
+                <button class="start-btn" onclick="startGame()">START GAME</button>
+                <button class="new-card-btn" onclick="newCard()">NEW CARD</pbutton>
+                    <button class="bet-btn" onclick="spendChip()">BET</button>
+            </div>
+        </div>
+   
 
-
-    <p id="card-el">Cards: </p>
-    <p id="sum-el">Sum: </p>
-    <p id="player"></p>
-    <button id="start-btn" onclick="startGame()">START GAME</button>
-    <button id="new-card-btn" onclick="newCard()">NEW CARD</button>
-
-    <button id="bet-btn" onclick="spendChip()">BET</button>
     <script src="app.js">
 
     </script>
 </body>
+
 </html>

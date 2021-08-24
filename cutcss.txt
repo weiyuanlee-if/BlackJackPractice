@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Raleway&display=swap');
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+body {
+  
+    background-color: black;
+
+    
+   
+
+}
+main {
+    margin-top: 10%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(5, 1fr));
+    justify-content: center;
+grid-template-rows: repeat(5, 1fr);
+grid-column-gap: 1%;
+grid-row-gap: 0px;
+     
+}
+.game-box {
+    outline: 4px solid white;
+    display: grid;
+    
+    grid-area: 1 / 2 / 6 / 5;
+    
+
+}
+
+p {
+font-family: 'Raleway', sans-serif;
+margin: 1em 0em 1em 0em;
+padding: 0em 5em 0 5em;
+color: white;
+}
+button {
+    margin: 0.5em 0em 3em 0em;
+    padding: 0.5em  0.5em  0.5em  0.5em;
+    text-align: center;
+    color: white;
+    background-color: black;
+    border: 0.2em solid white;
+    font-family: 'Raleway', sans-serif;
+    border-radius: 0.5em;
+}
+.header-el {
+    
+    text-align: center;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    grid-area: 1 / 2 / 2 / 5; 
+    justify-self: center;
+}
+.game-buttons {
+    
+    padding-top: 3em;
+    grid-area: 5 / 2 / 6 / 5;
+ 
+    justify-self: center;
+
+}
+.dealer-side{
+
+    grid-area: 3 / 2 / 5 / 3;
+    
+}
+.player-side {
+    grid-area: 3 / 4 / 5 / 5;
+}
+.chips {
+
+    grid-area: 2 / 3 / 3 / 4;
+    justify-self: center;
+    align-self: flex-end;
+}
+@media only screen and (max-width: 550px) {
+main {
+    margin-top: 10%;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+grid-template-rows: repeat(5, 1fr);
+grid-column-gap: 1%;
+grid-row-gap: 0px;
+grid-area: 
+"game-box",
+"header-el",
+"chips",
+"dealer-side",
+"player-side",
+"game-buttons";
+}
+
+}
